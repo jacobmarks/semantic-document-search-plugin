@@ -1,5 +1,7 @@
 ## Semantic Document Search Plugin
 
+![display_and_search_thesis](https://github.com/jacobmarks/semantic-document-search-plugin/assets/12500356/ac87511d-c3f9-4718-891d-89e14aef4152)
+
 This plugin is a Python plugin that allows you to semantically search through your text blocks (from Optical Character Recognition) in your dataset.
 
 It uses a Qdrant index, with the GTE-base model from Hugging Face's Sentence Transformers library.
@@ -46,13 +48,14 @@ fiftyone plugins download https://github.com/jacobmarks/pytesseract-ocr-plugin
 
 ### `create_semantic_document_index`
 
-![thesis_create_index](https://github.com/jacobmarks/fuzzy-search-plugin/assets/12500356/1660d9e8-c7b8-4e58-843f-f016555c451e)
+![create_index](https://github.com/jacobmarks/semantic-document-search-plugin/assets/12500356/2ac0da4a-36b6-40d9-86e3-ec61a94f050c)
+
 
 **Description**: Create a Qdrant index for the specified text field within a detections label field.
 
 ### `semantically_search_documents`
 
-![thesis_search](https://github.com/jacobmarks/fuzzy-search-plugin/assets/12500356/63082f25-640c-45ef-8e77-38e27fba0269)
+![search_index](https://github.com/jacobmarks/semantic-document-search-plugin/assets/12500356/1c174879-398b-414d-8891-02bccf3c6be7)
 
 **Description**: Semantically search for text in your dataset. Only labels matching your query will be shown.
 
