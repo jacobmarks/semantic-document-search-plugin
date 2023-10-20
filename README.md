@@ -52,6 +52,8 @@ fiftyone plugins download https://github.com/jacobmarks/pytesseract-ocr-plugin
 
 ### `fuzzy_search_text`
 
+![thesis_search](https://github.com/jacobmarks/fuzzy-search-plugin/assets/12500356/63082f25-640c-45ef-8e77-38e27fba0269)
+
 **Description**: Semantically, of "fuzzilly" search for text in your dataset. Only labels matching your query will be shown.
 
 You can specify the number of results to return, and the threshold for the similarity score.
