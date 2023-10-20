@@ -46,6 +46,8 @@ fiftyone plugins download https://github.com/jacobmarks/pytesseract-ocr-plugin
 
 ### `create_text_index`
 
+![thesis_create_index](https://github.com/jacobmarks/fuzzy-search-plugin/assets/12500356/1660d9e8-c7b8-4e58-843f-f016555c451e)
+
 **Description**: Create a Qdrant index for the specified text field within a detections label field.
 
 ### `fuzzy_search_text`
