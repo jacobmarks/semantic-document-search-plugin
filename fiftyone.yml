@@ -1,0 +1,8 @@
+fiftyone:
+  version: ">=0.22.0"
+name: "@jacobmarks/fuzzy_search"
+version: "1.0.0"
+description: "Perform fuzzy search on text fields"
+operators:
+  - create_text_index
+  - fuzzy_search_text
