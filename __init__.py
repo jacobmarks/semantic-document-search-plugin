@@ -1,4 +1,4 @@
-"""Fuzzy Search plugin.
+"""Semantic Document Search plugin.
 
 | Copyright 2017-2023, Voxel51, Inc.
 | `voxel51.com <https://voxel51.com/>`_
@@ -78,7 +78,7 @@ def _create_index(ctx):
     dataset = ctx.dataset
     detection_field = ctx.params.get("detection_field", None)
     text_field = ctx.params.get("text_field", None)
-    collection_name = f"{dataset.name.lower().replace(' ', '_').replace('-', '_')}_fuzzy_{detection_field}"
+    collection_name = f"{dataset.name.lower().replace(' ', '_').replace('-', '_')}_sds_{detection_field}"
 
     embeddings, sample_ids, label_ids = [], [], []
     model = _get_model()
@@ -215,8 +215,12 @@ class CreateGTEIndex(foo.Operator):
     @property
     def config(self):
         _config = foo.OperatorConfig(
-            name="create_text_index",
-            label="Fuzzy Search: Create vector index for text blocks with GTE",
+            name="create_semantic_document_index",
+            label="Semantic Document Search: create index",
+            description=(
+                "Create the Qdrant vector index for text blocks within your "
+                "documents with GTE-base model"
+            ),
             dynamic=True,
         )
         _config.icon = "/assets/icon.svg"
@@ -246,7 +250,7 @@ class CreateGTEIndex(foo.Operator):
 
 def _get_matching_collections(ctx):
     dsn = ctx.dataset.name.lower().replace(" ", "_").replace("-", "_")
-    prefix = f"{dsn}_fuzzy_"
+    prefix = f"{dsn}_sds_"
 
     client = qc.QdrantClient()
     collections = client.get_collections().collections
@@ -254,7 +258,7 @@ def _get_matching_collections(ctx):
 
 
 def _extract_detections_field(collection_name):
-    return collection_name.split("_fuzzy_")[-1]
+    return collection_name.split("_sds_")[-1]
 
 
 def _run_query(ctx):
@@ -291,12 +295,12 @@ def _run_query(ctx):
     return view
 
 
-class FuzzySearch(foo.Operator):
+class SemanticDocumentSearch(foo.Operator):
     @property
     def config(self):
         _config = foo.OperatorConfig(
-            name="fuzzy_search_text",
-            label="Fuzzy Search: search text blocks semantically",
+            name="semantically_search_documents",
+            label="Semantic Document Search: search text blocks semantically",
             dynamic=True,
         )
         _config.icon = "/assets/icon.svg"
@@ -315,7 +319,8 @@ class FuzzySearch(foo.Operator):
     def resolve_input(self, ctx):
         inputs = types.Object()
         form_view = types.View(
-            label="Fuzzy Search", description="Semantically search text blocks"
+            label="Semantic Document Search",
+            description="Semantically search text blocks",
         )
 
         valid_collections = _get_matching_collections(ctx)
@@ -326,7 +331,7 @@ class FuzzySearch(foo.Operator):
                     label="No available index",
                     description=(
                         "No valid index found. You can create an index "
-                        "using the `create_text_index` operator"
+                        "using the `create_semantic_document_index` operator"
                     ),
                 ),
             )
@@ -395,4 +400,4 @@ class FuzzySearch(foo.Operator):
 
 def register(plugin):
     plugin.register(CreateGTEIndex)
-    plugin.register(FuzzySearch)
+    plugin.register(SemanticDocumentSearch)

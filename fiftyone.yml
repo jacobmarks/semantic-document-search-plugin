@@ -1,8 +1,8 @@
 fiftyone:
   version: ">=0.22.0"
-name: "@jacobmarks/fuzzy_search"
+name: "@jacobmarks/semantic_document_search"
 version: "1.0.0"
-description: "Perform fuzzy search on text fields"
+description: "Perform semantic search on text in your documents"
 operators:
-  - create_text_index
-  - fuzzy_search_text
+  - create_semantic_document_index
+  - semantically_search_documents

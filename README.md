@@ -8,9 +8,9 @@ It uses a Qdrant index, with the GTE-base model from Hugging Face's Sentence Tra
 
 You will need to have text blocks in your dataset. You can do this with the [PyTesseract OCR plugin](https://github.com/jacobmarks/pytesseract-ocr-plugin).
 
-Create a vector index for your text blocks with the `create_document_index` operator. You can then use the `semantically_search_document` operator to search through your text blocks.
+Create a vector index for your text blocks with the `create_semantic_document_index` operator. You can then use the `semantically_search_documents` operator to search through your text blocks.
 
-If you have multiple detections with text blocks, you can create multiple indexes. The index is stored in Qdrant with the collection name `<dataset_name>_sds_<field_name>`. When you use the `semantically_search_document` operator, you can specify which index to use.
+If you have multiple detections with text blocks, you can create multiple indexes. The index is stored in Qdrant with the collection name `<dataset_name>_sds_<field_name>`. When you use the `semantically_search_documents` operator, you can specify which index to use.
 
 ## Installation
 
@@ -44,13 +44,13 @@ fiftyone plugins download https://github.com/jacobmarks/pytesseract-ocr-plugin
 
 ## Operators
 
-### `create_text_index`
+### `create_semantic_document_index`
 
 ![thesis_create_index](https://github.com/jacobmarks/fuzzy-search-plugin/assets/12500356/1660d9e8-c7b8-4e58-843f-f016555c451e)
 
 **Description**: Create a Qdrant index for the specified text field within a detections label field.
 
-### `semantically_search_document`
+### `semantically_search_documents`
 
 ![thesis_search](https://github.com/jacobmarks/fuzzy-search-plugin/assets/12500356/63082f25-640c-45ef-8e77-38e27fba0269)
 
