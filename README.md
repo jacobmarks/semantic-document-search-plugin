@@ -6,7 +6,7 @@ It uses a Qdrant index, with the GTE-base model from Hugging Face's Sentence Tra
 
 ## Usage
 
-You will need to have text blocks in your dataset. You can do this with the [PyTesseract OCR plugin](https://github.com/jacobmarks/pytesseract-ocr-plugin). 
+You will need to have text blocks in your dataset. You can do this with the [PyTesseract OCR plugin](https://github.com/jacobmarks/pytesseract-ocr-plugin).
 
 Create a vector index for your text blocks with the `create_text_index` operator. You can then use the `fuzzy_search_text` operator to search through your text blocks.
 
@@ -20,7 +20,7 @@ Download the plugin with the following command:
 fiftyone plugins download https://github.com/jacobmarks/fuzzy-search-plugin
 ```
 
-You will need to install the Sentence Transformers library, and the Qdrant client Python library, which can be achieved with 
+You will need to install the Sentence Transformers library, and the Qdrant client Python library, which can be achieved with
 
 ```shell
 fiftyone plugins requirements @jacobmarks/fuzzy_search --install
@@ -28,8 +28,8 @@ fiftyone plugins requirements @jacobmarks/fuzzy_search --install
 
 You will also need to have a Qdrant instance running. You can do this with Docker once you have your Docker daemon running:
 
-```python
-!docker run -p "6333:6333" -p "6334:6334" -d qdrant/qdrant
+```shell
+docker run -p "6333:6333" -p "6334:6334" -d qdrant/qdrant
 ```
 
 ## Using with PyTesseract OCR Plugin
