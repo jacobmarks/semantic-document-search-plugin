@@ -14,6 +14,10 @@ Create a vector index for your text blocks with the `create_semantic_document_in
 
 If you have multiple detections with text blocks, you can create multiple indexes. The index is stored in Qdrant with the collection name `<dataset_name>_sds_<field_name>`. When you use the `semantically_search_documents` operator, you can specify which index to use.
 
+## Watch On Youtube
+[![Video Thumbnail](https://img.youtube.com/vi/I0FFDCbWZcM/0.jpg)](https://www.youtube.com/watch?v=I0FFDCbWZcM&list=PLuREAXoPgT0RZrUaT0UpX_HzwKkoB-S9j&index=13)
+
+
 ## Installation
 
 Download the plugin with the following command:
