@@ -1,7 +1,7 @@
 fiftyone:
-  version: ">=0.22.0"
+  version: ">=0.23.7"
 name: "@jacobmarks/semantic_document_search"
-version: "1.0.0"
+version: "1.0.1"
 description: "Perform semantic search on text in your documents"
 operators:
   - create_semantic_document_index

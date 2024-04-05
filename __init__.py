@@ -5,11 +5,6 @@
 |
 """
 
-import json
-import os
-
-from bson import json_util
-
 import fiftyone as fo
 import fiftyone.core.utils as fou
 import fiftyone.operators as foo
@@ -68,10 +63,6 @@ def _execution_mode(ctx, inputs):
                 )
             ),
         )
-
-
-def serialize_view(view):
-    return json.loads(json_util.dumps(view._serialize()))
 
 
 def _create_index(ctx):
@@ -245,7 +236,7 @@ class CreateGTEIndex(foo.Operator):
 
     def execute(self, ctx):
         _create_index(ctx)
-        ctx.trigger("reload_dataset")
+        ctx.ops.reload_dataset()
 
 
 def _get_matching_collections(ctx):
@@ -391,10 +382,7 @@ class SemanticDocumentSearch(foo.Operator):
 
     def execute(self, ctx):
         view = _run_query(ctx)
-        ctx.trigger(
-            "set_view",
-            params=dict(view=serialize_view(view)),
-        )
+        ctx.ops.set_view(view=view)
         return
 
 
